@@ -4,18 +4,15 @@ function update() {
     var rotateAngle = Math.PI / 2 * delta * 2;   // pi/2 radians (90 degrees) per second
 
     if (keyboard.pressed("left")) {
-        player1.decelerate(moveDistance);
         player1.turnLeft(rotateAngle);
     }
-    else if (keyboard.pressed("right")) {
-        player1.decelerate(moveDistance);
+    if (keyboard.pressed("right")) {
         player1.turnRight(rotateAngle);
     }
-    else if (keyboard.pressed("up")) {
-        player1.decelerate(moveDistance);
+    if (keyboard.pressed("up")) {
         player1.accelerate(moveDistance);
     }
-    
+
     if (keyboard.pressed("down"))
         player1.decelerate(moveDistance);
 

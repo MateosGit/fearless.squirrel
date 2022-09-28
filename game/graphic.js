@@ -1,3 +1,10 @@
+function randomEnnemy(max_width, max_height, i) {
+    var randomPos = (min, max) => { return Math.random() * (max - min) + min }
+
+    return new Ennemy(i, 0x0f00ff, new THREE.Vector2(
+        randomPos(- max_width / 2, max_width / 2), randomPos(- max_height / 2, max_height / 2)
+    ), 0)
+}
 function init() {
     // set some camera attributes
     var VIEW_ANGLE = 45,
@@ -27,8 +34,9 @@ function init() {
     player1 = new Player("player1", 0xffff00, new THREE.Vector2(ground.position.x, ground.position.y), 0);
     scene.add(player1.graphic);
 
-    ennemy = new Ennemy("ennemy1", 0x0f00ff, new THREE.Vector2(50, 50), 0)
-    scene.add(ennemy.graphic)
+    ennemy1 = new Ennemy("ennemy1", 0x0f00ff, new THREE.Vector2(0, 0), 0)
+    scene.add(ennemy1.graphic)
+
     light1 = new Light("sun", 0xffffff, "0,0,340");
     scene.add(light1);
 

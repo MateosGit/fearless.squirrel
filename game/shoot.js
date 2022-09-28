@@ -34,9 +34,9 @@ function shoot()
 
 function collisions()
 {
-    bullet_collision();
+    //bullet_collision();
     player_collision();
-    player_falling();
+    //player_falling();
 }
 
 function bullet_collision()
@@ -62,11 +62,13 @@ function player_collision()
     var y = player1.graphic.position.y + HEIGHT / 2;
 
     if ( x > WIDTH )
-        player1.graphic.position.x -= x - WIDTH;
+        player1.speed = -1;
+    if (x < 0)
+        player1.speed = -1;
     if ( y < 0 )
-        player1.graphic.position.y -= y;
+        player1.speed = -1;
     if ( y > HEIGHT )
-        player1.graphic.position.y -= y - HEIGHT;
+        player1.speed = -1;
 
 }
 
